@@ -117,8 +117,8 @@ export function createScene(canvas) {
     const portrait = camera.aspect < 0.9;
     camera.fov = portrait ? 40 : 32;
     camera.updateProjectionMatrix();
-    rig.userData.baseY = portrait ? 0.75 : -0.05;
-    rig.userData.baseScale = portrait ? 0.74 : 1.15;
+    rig.userData.baseY = portrait ? 1.0 : -0.05;
+    rig.userData.baseScale = portrait ? 0.68 : 1.15;
   }
   resize();
   window.addEventListener('resize', resize);
