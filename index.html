@@ -1,1 +1,57 @@
-<!doctype html><meta charset=utf-8><title>Jewelry Showcase</title><a href="dark.html">dark</a> <a href="light.html">light</a>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0b09" />
+  <title>Jewelry Showcase — choose a style | اختر الأسلوب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Tajawal:wght@400;500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100svh;background:#0d0b09;color:#f3ead6;font-family:'Jost','Tajawal',sans-serif;display:flex;flex-direction:column;align-items:center;padding:max(34px,env(safe-area-inset-top)) 20px 40px;gap:26px;
+      background-image:radial-gradient(60% 40% at 50% 0%,rgba(217,164,65,.16),transparent 70%)}
+    h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,8vw,3.4rem);text-align:center;line-height:1.1}
+    h1 small{display:block;font-family:'Tajawal',sans-serif;font-size:.5em;color:#d9a441;margin-top:8px;font-weight:500}
+    p.lead{color:#a69a82;text-align:center;max-width:420px;font-size:.98rem}
+    .cards{display:grid;gap:18px;width:100%;max-width:980px}
+    @media(min-width:800px){.cards{grid-template-columns:1fr 1fr}}
+    .card{position:relative;display:flex;flex-direction:column;border-radius:26px;overflow:hidden;border:1px solid rgba(217,164,65,.3);transition:transform .4s,box-shadow .4s;min-height:340px}
+    .card:active{transform:scale(.985)}
+    .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(217,164,65,.35)}
+    .card .art{flex:1;display:grid;place-items:center;padding:30px}
+    .card .art svg{width:min(52%,200px);aspect-ratio:1;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 18px 20px rgba(0,0,0,.35))}
+    @keyframes bob{50%{transform:translateY(-12px) rotate(2deg)}}
+    .card .meta{padding:20px 24px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .card h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.8rem;line-height:1.1}
+    .card h2 span{display:block;font-family:'Tajawal',sans-serif;font-size:.62em;opacity:.75;font-weight:500;margin-top:2px}
+    .go{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:1.3rem}
+    .dark{background:radial-gradient(circle at 50% 35%,#2a1f10,#0a0806);color:#f3ead6}
+    .dark .go{background:linear-gradient(110deg,#8a5f17,#f6e1a0,#d9a441);color:#1a1206}
+    .light{background:radial-gradient(circle at 50% 35%,#fffdf8,#eadfc6);color:#231c14;border-color:rgba(176,138,62,.5)}
+    .light .go{background:#231c14;color:#faf5ec}
+    footer{color:#7d725e;font-size:.82rem;text-align:center;margin-top:auto}
+  </style>
+</head>
+<body>
+  <h1>Choose a style<small>اختر الأسلوب</small></h1>
+  <p class="lead">Two prototypes of the same jewellery showcase. Both are bilingual (Arabic / English) and mobile-first.</p>
+  <div class="cards">
+    <a class="card dark" href="dark.html">
+      <div class="art" data-art="ring"></div>
+      <div class="meta"><h2>Layali — Dark &amp; Gold<span>ليالي · سينمائي</span></h2><span class="go">→</span></div>
+    </a>
+    <a class="card light" href="light.html">
+      <div class="art" data-art="pendant"></div>
+      <div class="meta"><h2>Noor — Light &amp; Minimal<span>نور · هادئ وأنيق</span></h2><span class="go">→</span></div>
+    </a>
+  </div>
+  <footer>Demo prototypes · placeholder visuals &amp; contacts</footer>
+  <script type="module">
+    import './src/shared/base.css';
+    import { jewelrySVG } from './src/shared/jewelry.js';
+    document.querySelectorAll('[data-art]').forEach((el) => (el.innerHTML = jewelrySVG(el.dataset.art)));
+  </script>
+</body>
+</html>
